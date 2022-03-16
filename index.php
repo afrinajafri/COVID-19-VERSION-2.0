@@ -15,7 +15,7 @@ $vaccine = json_decode($json,true);
  
 
 $stateArr = ['Johor','Kedah','Kelantan', 'Melaka', 'Negeri Sembilan', 'Pahang', 'Perak', 'Perlis','Pulau Pinang', 'Sabah', 'Sarawak', 'Selangor', 'Terengganu', 'W.P. Kuala Lumpur', 'W.P. Labuan', 'W.P. Putrajaya' ];
-$dateArr = ['2 Weeks Ago','This Month','This Year', 'All Time'];
+$dateArr = ['2 Weeks Ago','2 Months Ago','This Year', 'All Time'];
 
 if(isset($_GET["state"])   ) {    
     $_SESSION['state'] = $_GET["state"];  

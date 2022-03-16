@@ -1,5 +1,5 @@
 <?php 
- header('Content-Type: application/json');   
+
 //Include class  StateCases
 require("../classFunction/StateCasesClass.php");
  
@@ -17,9 +17,9 @@ if (isset($_SESSION['state']))
             $getData = $cases->weeklyData($state);   
         }
         
-        // else if($date == 'This Month'){
-        //     $getData = $cases->monthlyData($state);   
-        // } 
+        else if($date == '2 Months Ago'){
+            $getData = $cases->twoMonth($state);   
+        } 
 
         // else if($date == 'This Year'){
         //     $getData = $cases->yearlyData($state);   

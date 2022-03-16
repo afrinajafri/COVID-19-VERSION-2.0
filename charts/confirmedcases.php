@@ -14,9 +14,11 @@ jQuery(document).ready(function($){
         console.log('bar chart data:',data);
        
         var date = [];
+        var labeldate = [];
         var cases = [];  
         for (var i in data) { 
           date.push(data[i].date);
+          labeldate.push(data[i].labeldate);
           cases.push(data[i].cases);   
             
         }
@@ -26,9 +28,9 @@ jQuery(document).ready(function($){
           datasets : [
             {
               label: "Confirmed Cases",
-              backgroundColor: "#4e73df",
-              hoverBackgroundColor: "#2e59d9",
-              borderColor: "#4e73df",
+              backgroundColor: "#419466",
+              hoverBackgroundColor: "#95c4aa",
+              borderColor: "#58806a",
               data: cases
             }
           ]
@@ -51,6 +53,9 @@ jQuery(document).ready(function($){
               }
             }, 
             tooltips: {
+              callbacks: {
+                label:labeldate
+              },
                 titleMarginBottom: 10,
                 titleFontColor: '#6e707e',
                 titleFontSize: 14,
