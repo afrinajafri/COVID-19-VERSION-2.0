@@ -21,13 +21,13 @@ if (isset($_SESSION['state']))
             $getData = $cases->twoMonth($state);   
         } 
 
-        // else if($date == 'This Year'){
-        //     $getData = $cases->yearlyData($state);   
-        // } 
+        else if($date == 'This Year'){
+            $getData = $cases->yearlyData($state);   
+        } 
  
-        // else if($date == 'All Time'){
-        //     $getData = $cases->allTime($state);   
-        // } 
+        else if($date == 'All Time'){
+            $getData = $cases->allTime($state);   
+        } 
     }
 }  
 
