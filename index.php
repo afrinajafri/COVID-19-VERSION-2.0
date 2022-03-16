@@ -99,6 +99,50 @@ require ("charts/confirmedcases.php");
                     <h5 class="card-title">Confirmed COVID-19 Cases</h5> 
                         <p class="card-text"> 
                         <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?> | Total Population</h6> 
+
+                        <div class="row mt-4">
+                                <div class="col">
+                                    <span class="text-muted">Daily - Administered</span>
+                                <h4>+ <?php echo number_format($vaccine['daily'])?></h4> 
+                                </div>  
+                                <div class="col">
+                                    <span class="text-muted">Total - Administered</span>
+                                    <h4><?php echo number_format($vaccine['cumul'])?></h4>
+                                </div>  
+                            </div>    
+
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <span class="text-muted">Daily - 1st Dose</span>
+                                    <h4>+ <?php echo number_format($vaccine['daily_partial'])?></h4>
+                                </div> 
+                                <div class="col">
+                                    <span class="text-muted">Total - At Least 1 Dose</span>
+                                    <h4><?php echo number_format($vaccine['cumul_partial'])?></h4>
+                                </div>  
+                            </div>    
+
+                            <div class="row mt-2">
+                                <div class="col">
+                                    <span class="text-muted">Daily - 2 Doses</span>
+                                    <h4>+ <?php echo number_format($vaccine['daily_full'])?></h4>
+                                </div> 
+                                <div class="col">
+                                    <span class="text-muted">Total - 2 Doses</span>
+                                    <h4><?php echo number_format($vaccine['cumul_full'])?></h4>
+                                </div>  
+                            </div>    
+
+                            <div class="row mt-2" style="margin-bottom:160px">
+                                <div class="col">
+                                    <span class="text-muted">Daily - Booster</span>
+                                    <h4>+ <?php echo number_format($vaccine['daily_booster'])?></h4>
+                                </div> 
+                                <div class="col">
+                                    <span class="text-muted">Total - Boosters</span>
+                                    <h4><?php echo number_format($vaccine['cumul_booster'])?></h4>
+                                </div>  
+                            </div>     
                         </p> 
                     </div>
                 </div>
