@@ -1,6 +1,15 @@
 <?php  
-require ("charts/confirmedcases.php"); 
 
+
+//Include class  StateVaccination
+require_once("model/StateVaccination.php");
+  
+if (isset($_SESSION['state']))
+{ 
+    $state = $_SESSION['state'];  
+}  
+$vaccine = json_decode($json,true);   
+ 
 
 $stateArr = ['Johor','Kedah','Kelantan', 'Melaka', 'Negeri Sembilan', 'Pahang', 'Perak', 'Perlis','Pulau Pinang', 'Sabah', 'Sarawak', 'Selangor', 'Terengganu', 'W.P. Kuala Lumpur', 'W.P. Labuan', 'W.P. Putrajaya' ];
 $dateArr = ['2 Weeks Ago','This Month','This Year', 'All Time'];
@@ -14,7 +23,7 @@ if(isset($_GET["state"])   ) {
  } 
  
 session_write_close(); 
-
+require ("charts/confirmedcases.php"); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,6 +98,7 @@ session_write_close();
                     <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 10 Mar 2022, 11:59 pm</span></p>
                     <h5 class="card-title">Confirmed COVID-19 Cases</h5> 
                         <p class="card-text"> 
+                        <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?> | Total Population</h6> 
                         </p> 
                     </div>
                 </div>

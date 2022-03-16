@@ -1,6 +1,7 @@
-<?php
-
-include_once '../source.php';
+<?php 
+//  header('Content-Type: application/json');   
+$vaccineRepoUrl = "https://raw.githubusercontent.com/CITF-Malaysia/citf-public/main/";
+$vaccineStateUrl= $vaccineRepoUrl . "vaccination/vax_state.csv";
 
 if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {
     $csvs = [];
@@ -30,7 +31,7 @@ if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {
     } 
     
     fclose($handle);
-    print_r($json);
+    // print_r($json);
 }
 
 ?>
