@@ -43,6 +43,11 @@ jQuery(document).ready(function($){
           type: 'bar',
           data: chartdata,
           options: {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
             maintainAspectRatio: false,
             layout: {
               padding: {

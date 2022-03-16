@@ -3,28 +3,34 @@
 <script type="text/javascript">
 
 
+
 jQuery(document).ready(function($){ 
-    $.ajax({
-      url: "../model/DeathCase.php",
+    $.ajax({ 
+      url: "../model/DeathCases.php",
       method: "GET",
       success: function(data) {
-        console.log('death data:',data);
+ 
+        console.log('deathbar data:',data);
+       
         var date = [];
-        var deaths_new = [];  
-        for (var i in data) {
-            date.push(data[i].date);
-            deaths_new.push(data[i].deaths_new);  
+        var labeldate = [];
+        var cases = [];  
+        for (var i in data) { 
+          date.push(data[i].date);
+          labeldate.push(data[i].labeldate);
+          cases.push(data[i].cases);   
+            
         }
-  
+        console.log('haii', cases);
         var chartdata = {
           labels: date,
           datasets : [
             {
-              label: "Total Death",
-              backgroundColor: "#4e73df",
-              hoverBackgroundColor: "#2e59d9",
-              borderColor: "#4e73df",
-              data: deaths_new
+              label: "Confirmed Cases",
+              backgroundColor: "#419466",
+              hoverBackgroundColor: "#95c4aa",
+              borderColor: "#58806a",
+              data: cases
             }
           ]
         }
@@ -36,6 +42,11 @@ jQuery(document).ready(function($){
           type: 'bar',
           data: chartdata,
           options: {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
             maintainAspectRatio: false,
             layout: {
               padding: {
@@ -46,6 +57,9 @@ jQuery(document).ready(function($){
               }
             }, 
             tooltips: {
+              callbacks: {
+                label:labeldate
+              },
                 titleMarginBottom: 10,
                 titleFontColor: '#6e707e',
                 titleFontSize: 14,
