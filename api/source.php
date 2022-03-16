@@ -11,6 +11,7 @@ $vaccineRegStateUrl = $vaccineRepoUrl . "registration/vaxreg_state.csv";
 $epidemicTotalNewCasesUrl = $healthRepoUrl . "epidemic/cases_malaysia.csv";
 $epidemicStateNewCasesUrl = $healthRepoUrl . "epidemic/cases_state.csv";
 $epidemicTotalNewDeathsUrl = $healthRepoUrl . "epidemic/deaths_malaysia.csv";
+$epidemicVentilated = $healthRepoUrl . "epidemic/icu.csv";
 $epidemicStateNewDeathsUrl = $healthRepoUrl . "epidemic/deaths_state.csv";
 $epidemicTotalTestsUrl = $healthRepoUrl . "epidemic/tests_malaysia.csv";
 

@@ -26,7 +26,7 @@ jQuery(document).ready(function($){
           labels: date,
           datasets : [
             {
-              label: "Confirmed Cases",
+              label: "Daily Deaths",
               backgroundColor: "#419466",
               hoverBackgroundColor: "#95c4aa",
               borderColor: "#58806a",
