@@ -1,5 +1,20 @@
 <?php  
 require ("charts/confirmedcases.php"); 
+
+
+$stateArr = ['Johor','Kedah','Kelantan', 'Melaka', 'Negeri Sembilan', 'Pahang', 'Perak', 'Perlis','Pulau Pinang', 'Sabah', 'Sarawak', 'Selangor', 'Terengganu', 'W.P. Kuala Lumpur', 'W.P. Labuan', 'W.P. Putrajaya' ];
+$dateArr = ['2 Weeks Ago','This Month','This Year', 'All Time'];
+session_start(); 
+if(isset($_GET["state"])   ) {    
+    $_SESSION['state'] = $_GET["state"];  
+ } 
+
+ if(isset($_GET["date"])   ) {    
+    $_SESSION['date'] = $_GET["date"];  
+ } 
+ 
+session_write_close(); 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,6 +66,60 @@ require ("charts/confirmedcases.php");
     </nav>
 
     <div class="container">
+
+        <!-- TO SELECT STATE -->
+        <div class="position-relative" style="padding-bottom:50px"> 
+            <div class="position-absolute top-0 end-0">
+                <form id="form1" action = "<?php $_PHP_SELF ?>" method = "GET"> 
+                    <select onchange="this.form.submit()" name="state" class="form-select" aria-label="Default select example" > 
+                        <option selected>   <?php  if(!isset($_SESSION['state'])) {  echo 'Select State'; }else{ echo $_SESSION['state'];}?></option>  
+                        <?php foreach($stateArr as $row){?>   
+                        <option value="<?php echo $row?>"><?php echo $row?></option>  
+                        <?php }?> 
+                    </select>
+                </form> 
+            </div> 
+        </div> 
+
+ 
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="card mb-5"> 
+                    <div class="card-body">
+                    <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 10 Mar 2022, 11:59 pm</span></p>
+                    <h5 class="card-title">Confirmed COVID-19 Cases</h5> 
+                        <p class="card-text"> 
+                        </p> 
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-xl-7">
+                <div class="card mb-4"> 
+                    <div class="card-body">
+                    <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 10 Mar 2022, 11:59 pm</span></p>
+                    <h5 class="card-title">Confirmed COVID-19 Cases</h5> 
+                        <p class="card-text"> 
+                        </p> 
+                    </div>
+                </div>
+            </div> 
+
+        </div>
+
+         <!-- TO SELECT DATE -->
+         <div class="position-relative" style="padding-bottom:50px"> 
+            <div class="position-absolute top-0 end-0">
+                 <form id="form1" action = "<?php $_PHP_SELF ?>" method = "GET"> 
+                <select onchange="this.form.submit()" name="date" class="form-select" aria-label="Default select example" > 
+                <option selected>   <?php  if(!isset($_SESSION['date'])) {  echo 'Select Date'; }else{ echo $_SESSION['date'];}?></option>  
+                    <?php foreach($dateArr as $row){?>   
+                    <option  value="<?php echo $row?>"><?php echo $row?></option>  
+                    <?php }?> 
+                </select>
+                </form> 
+            </div> 
+        </div> 
 
         <div class="col-xl-4">
             <div class="card mb-4"> 
