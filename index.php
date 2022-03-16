@@ -29,6 +29,7 @@ require ("charts/confirmedcases.php");
 require ("charts/malaysiadaily.php"); 
 require ("charts/deathchart.php"); 
 require ("charts/ventilated.php"); 
+require ("charts/icuchart.php"); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -207,6 +208,19 @@ require ("charts/ventilated.php");
                     <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?></h6> 
                         <p class="card-text">
                         <canvas id="ventilated" width="100%" height="400"> </canvas>
+                        </p> 
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-xl-4">
+                <div class="card mb-4"> 
+                    <div class="card-body">
+                    <p class="text-muted">Healthcare   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 15 Mar 2022, 11:59 pm</span></p>
+                    <h5 class="card-title">COVID-19 Patients in ICU</h5> 
+                    <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?></h6> 
+                        <p class="card-text">
+                        <canvas id="icu" width="100%" height="400"> </canvas>
                         </p> 
                     </div>
                 </div>

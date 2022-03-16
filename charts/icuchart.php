@@ -3,39 +3,49 @@
 <script type="text/javascript">
 
 
+
 jQuery(document).ready(function($){ 
-    $.ajax({
-      url: "../model/ICUCase.php",
+    $.ajax({ 
+      url: "../model/ICUCases.php",
       method: "GET",
       success: function(data) {
+ 
         console.log('icu data:',data);
+       
         var date = [];
-        var icu_covid = [];  
-        for (var i in data) {
-            date.push(data[i].date);
-            icu_covid.push(data[i].icu_covid);  
-        }
-  
+        var labeldate = [];
+        var cases = [];  
+        for (var i in data) { 
+          date.push(data[i].date);
+          labeldate.push(data[i].labeldate);
+          cases.push(data[i].cases);   
+            
+        } 
         var chartdata = {
           labels: date,
           datasets : [
             {
-              label: "ICU",
-              backgroundColor: "#4e73df",
-              hoverBackgroundColor: "#2e59d9",
-              borderColor: "#4e73df",
-              data: icu_covid
+              label: "Active ICU",
+              backgroundColor: "#419466",
+              hoverBackgroundColor: "#95c4aa",
+              borderColor: "#58806a",
+              data: cases
             }
           ]
         }
         ;
   
-        var ctx = $("#icuchart");
+        var ctx = $("#icu");
   
         var barGraph = new Chart(ctx, {
           type: 'bar',
           data: chartdata,
           options: {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
             maintainAspectRatio: false,
             layout: {
               padding: {
@@ -46,6 +56,9 @@ jQuery(document).ready(function($){
               }
             }, 
             tooltips: {
+              callbacks: {
+                label:labeldate
+              },
                 titleMarginBottom: 10,
                 titleFontColor: '#6e707e',
                 titleFontSize: 14,
