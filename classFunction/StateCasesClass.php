@@ -7,11 +7,50 @@ class StateCasesClass
         $healthRepoUrl = "https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/";
         return $healthRepoUrl . "epidemic/cases_state.csv";
     }
+
+    public function callAPI($method, $url, $data){
+        $curl = curl_init();
+        switch ($method){
+           case "POST":
+              curl_setopt($curl, CURLOPT_POST, 1);
+              if ($data)
+                 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+              break;
+           case "PUT":
+              curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+              if ($data)
+                 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);			 					
+              break;
+           default:
+              if ($data)
+                 $url = sprintf("%s?%s", $url, http_build_query($data));
+        }
+        // OPTIONS:
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+           'APIKEY: 111111111111111111111',
+           'Content-Type: application/json',
+        ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        // EXECUTE:
+        $result = curl_exec($curl);
+        if(!$result){die("Connection Failure");}
+        curl_close($curl);
+        return $result;
+     }
     
     //two weeks ago
     public function weeklyData($state){  
-        $epidemicStateNewCasesUrl = $this->callCSVFile();
-         
+        $epidemicStateNewCasesUrl = $this->callCSVFile();  
+
+        $get_data = $this->callAPI('GET', 'https://covid-19.samsam123.name.my/api/cases?date=latest', false);
+        $response = json_decode($get_data, true);
+        $week_end = $response['date'];
+        // $errors = $response['response']['errors'];
+        // $data = $response['response']['data'][0];
+
+
         if (($handle = fopen($epidemicStateNewCasesUrl, "r")) !== FALSE) {
             $csvs = [];
             while(! feof($handle)) {
@@ -29,9 +68,19 @@ class StateCasesClass
                     } else if ($key % 16 === 0) {
                         // Add the last data, and then push it into the master data
                         $currentDateData[$stateNames[15]] = $csv[2]; 
+
+                        // $day = date('w');
+                        $timestamp = strtotime($week_end);
+                        $day =  date("w", $timestamp);
+
+                        $week_start = date('Y-m-d', strtotime('-'.(16-$day).' days'));
+                        // $week_end = $csv[0];
+ 
     
-                        if($csv[0] == '2022-03-14' || $csv[0] == '2022-03-15'){
+                        if($csv[0] >= $week_start && $csv[0] <= $week_end){
                             $masterDataItem = array(
+                                // "week_start" => $week_start,
+                                // "week_end" => $week_end,
                                 "date" => $csv[0],
                                 "cases" => $currentDateData[strtolower($state)]
                             );

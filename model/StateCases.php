@@ -1,4 +1,5 @@
 <?php 
+ header('Content-Type: application/json');   
 //Include class  StateCases
 require("../classFunction/StateCasesClass.php");
  

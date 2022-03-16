@@ -1,5 +1,4 @@
-<?php 
-//  header('Content-Type: application/json');   
+<?php  
 $vaccineRepoUrl = "https://raw.githubusercontent.com/CITF-Malaysia/citf-public/main/";
 $vaccineStateUrl= $vaccineRepoUrl . "vaccination/vax_state.csv";
 

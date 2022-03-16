@@ -35,7 +35,7 @@ jQuery(document).ready(function($){
         }
         ;
   
-        var ctx = $("#mycanvas");
+        var ctx = $("#confirmed_cases");
   
         var barGraph = new Chart(ctx, {
           type: 'bar',

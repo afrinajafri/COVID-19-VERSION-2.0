@@ -187,7 +187,7 @@ require ("charts/malaysiadaily.php");
                 <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 15 Mar 2022, 11:59 pm</span></p>
                 <h5 class="card-title">Confirmed COVID-19 Cases</h5> 
                     <p class="card-text">
-                    <canvas id="mycanvas" width="100%" height="400"> </canvas>
+                    <canvas id="confirmed_cases" width="100%" height="400"> </canvas>
                     </p> 
                 </div>
             </div>
