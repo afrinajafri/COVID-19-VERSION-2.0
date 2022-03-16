@@ -10,9 +10,9 @@ jQuery(document).ready(function($){
       url: "../model/StateCases.php",
       method: "GET",
       success: function(data) {
-
-        var utc = new Date().toJSON().slice(0,10);
+ 
         console.log('bar chart data:',data);
+       
         var date = [];
         var cases = [];  
         for (var i in data) { 
@@ -20,7 +20,7 @@ jQuery(document).ready(function($){
           cases.push(data[i].cases);   
             
         }
-  
+        console.log('haii', cases);
         var chartdata = {
           labels: date,
           datasets : [

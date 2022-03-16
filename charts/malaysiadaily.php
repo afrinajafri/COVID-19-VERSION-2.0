@@ -5,51 +5,52 @@
 
 jQuery(document).ready(function($){ 
     $.ajax({
-      url: "../model/MalaysiaCases.php",
+      url: "https://covid-19.samsam123.name.my/api/state?date=latest",
       method: "GET",
       success: function(data) {
         console.log('malaysia data:',data);
         var state = [];
-        var cases = [];  
-        for (var i in data) {
-            state.push(data[i].state);
-            cases.push(data[i].cases);  
-        }
-  
+        var cases_new = [];  
+        for (var i in data) { 
+          state.push(data[i].state);
+          cases_new.push(data[i].cases_new);    
+        } 
         var chartdata = {
           labels: state,
           datasets : [
             {
               label: "Malaysia",
                 backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(54, 162, 235)',
-              'rgb(255, 205, 86)',
-              'rgb(235, 69, 54)',
-              'rgb(255, 191, 128)',
-              'rgb(168, 255, 128)',
-              'rgb(128, 168, 255)',
-              'rgb(126, 60, 240)',
-              'rgb(179, 61, 143)',
-              'rgb(237, 187, 197)',
-              'rgb(110, 46, 148)',
-              'rgb(210, 217, 173)',
-              'rgb(71, 161, 87)',
-              'rgb(55, 132, 158)',
+              '#adadad',
+              '#ff5454',
+              '#fa8748',
+              '#1100ff',
+              '#ffc640',
+              '#b6bd5b',
+              '#89d444',
+              '#7af0b1',
+              '#57d4bd',
+              '#409ac9',
+              '#960094',
+              '#be8cff',
+              '#ff9cfd',
+              '#ffb0bd',
+              '#7d4f67',
+              '#0085ad'
               
             ],
-              hoverBackgroundColor: "#c2c2c2",
-              borderColor: "#FFFFF",
-              data: cases
+              hoverBackgroundColor: "#c2c2c2", 
+              data: cases_new
             }
           ]
         }
         ;
+ 
   
         var ctx = $("#malaysia");
   
         var barGraph = new Chart(ctx, {
-          type: 'doughnut',
+          type: 'pie',
           data: chartdata,
           options: {
             maintainAspectRatio: false,

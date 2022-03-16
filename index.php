@@ -1,6 +1,6 @@
 <?php  
 
-
+session_start(); 
 //Include class  StateVaccination
 require_once("model/StateVaccination.php");
   
@@ -13,7 +13,7 @@ $vaccine = json_decode($json,true);
 
 $stateArr = ['Johor','Kedah','Kelantan', 'Melaka', 'Negeri Sembilan', 'Pahang', 'Perak', 'Perlis','Pulau Pinang', 'Sabah', 'Sarawak', 'Selangor', 'Terengganu', 'W.P. Kuala Lumpur', 'W.P. Labuan', 'W.P. Putrajaya' ];
 $dateArr = ['2 Weeks Ago','This Month','This Year', 'All Time'];
-session_start(); 
+
 if(isset($_GET["state"])   ) {    
     $_SESSION['state'] = $_GET["state"];  
  } 
@@ -21,9 +21,9 @@ if(isset($_GET["state"])   ) {
  if(isset($_GET["date"])   ) {    
     $_SESSION['date'] = $_GET["date"];  
  } 
- 
-session_write_close(); 
+  
 require ("charts/confirmedcases.php"); 
+require ("charts/malaysiadaily.php"); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,10 +95,11 @@ require ("charts/confirmedcases.php");
             <div class="col-xl-5">
                 <div class="card mb-5"> 
                     <div class="card-body">
-                    <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 10 Mar 2022, 11:59 pm</span></p>
-                    <h5 class="card-title">Confirmed COVID-19 Cases</h5> 
+                    <p class="text-muted">Vaccinations <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 15 Mar 2022, 11:59 pm</span></p>
+                    <h5 class="card-title">Population Vaccinated</h5> 
+                    <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?> | Total Population</h6> 
                         <p class="card-text"> 
-                        <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?> | Total Population</h6> 
+                        
 
                         <div class="row mt-4">
                                 <div class="col">
@@ -133,7 +134,7 @@ require ("charts/confirmedcases.php");
                                 </div>  
                             </div>    
 
-                            <div class="row mt-2" style="margin-bottom:160px">
+                            <div class="row mt-2" style="margin-bottom:120px">
                                 <div class="col">
                                     <span class="text-muted">Daily - Booster</span>
                                     <h4>+ <?php echo number_format($vaccine['daily_booster'])?></h4>
@@ -151,9 +152,11 @@ require ("charts/confirmedcases.php");
             <div class="col-xl-7">
                 <div class="card mb-4"> 
                     <div class="card-body">
-                    <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 10 Mar 2022, 11:59 pm</span></p>
-                    <h5 class="card-title">Confirmed COVID-19 Cases</h5> 
+                    <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 15 Mar 2022, 11:59 pm</span></p>
+                    <h5 class="card-title">Confirmed COVID-19 Cases in Malaysia</h5> 
+                    <h6 class="card-subtitle mb-2 text-muted">Data for All Malaysia State</h6> 
                         <p class="card-text"> 
+                        <canvas id="malaysia" width="100%" height="400"> </canvas>
                         </p> 
                     </div>
                 </div>
@@ -178,7 +181,7 @@ require ("charts/confirmedcases.php");
         <div class="col-xl-4">
             <div class="card mb-4"> 
                 <div class="card-body">
-                <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 10 Mar 2022, 11:59 pm</span></p>
+                <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 15 Mar 2022, 11:59 pm</span></p>
                 <h5 class="card-title">Confirmed COVID-19 Cases</h5> 
                     <p class="card-text">
                     <canvas id="mycanvas" width="100%" height="400"> </canvas>
