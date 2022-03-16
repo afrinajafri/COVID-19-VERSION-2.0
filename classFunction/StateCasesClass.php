@@ -9,7 +9,7 @@ class StateCasesClass
     }
     
     //two weeks ago
-    public function weeklyData($state){ 
+    public function weeklyData($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();
          
         if (($handle = fopen($epidemicStateNewCasesUrl, "r")) !== FALSE) {
@@ -33,7 +33,7 @@ class StateCasesClass
                         if($csv[0] == '2022-03-14' || $csv[0] == '2022-03-15'){
                             $masterDataItem = array(
                                 "date" => $csv[0],
-                                "cases" => $currentDateData['kelantan']
+                                "cases" => $currentDateData[strtolower($state)]
                             );
                             // Push the data item into the master data
                             array_push($masterData, $masterDataItem);
