@@ -229,6 +229,19 @@ require ("charts/icuchart.php");
             <div class="col-xl-4">
                 <div class="card mb-4"> 
                     <div class="card-body">
+                    <p class="text-muted">Healthcare   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 15 Mar 2022, 11:59 pm</span></p>
+                    <h5 class="card-title">COVID-19 Hospital Admissions</h5> 
+                    <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?></h6> 
+                        <p class="card-text">
+                        <canvas id="hospital" width="100%" height="400"> </canvas>
+                        </p> 
+                    </div>
+                </div>
+            </div> 
+
+            <div class="col-xl-4">
+                <div class="card mb-4"> 
+                    <div class="card-body">
                     <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 15 Mar 2022, 11:59 pm</span></p>
                     <h5 class="card-title">Confirmed COVID-19 Cases</h5> 
                     <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?></h6> 
@@ -238,7 +251,22 @@ require ("charts/icuchart.php");
                     </div>
                 </div>
             </div> 
+
+            <div class="col-xl-4">
+                <div class="card mb-4"> 
+                    <div class="card-body">
+                    <p class="text-muted">Testing   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 15 Mar 2022, 11:59 pm</span></p>
+                    <h5 class="card-title">COVID-19 Tests Conducted</h5> 
+                    <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?></h6> 
+                        <p class="card-text">
+                        <canvas id="test" width="100%" height="400"> </canvas>
+                        </p> 
+                    </div>
+                </div>
+            </div> 
         </div>
+
+
 
        
     </div> 

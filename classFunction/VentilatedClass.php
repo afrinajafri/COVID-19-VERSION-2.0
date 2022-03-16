@@ -161,7 +161,7 @@ class VentilatedClass
                             $datee2 = date("j M y", strtotime($csv[0]));
                             $masterDataItem = array( 
                                 "date" => $datee2 ,
-                                "cases" => $currentDateData[strtolower($state)]
+                                "cases" => $currentDateData[$state]
                             );
                             // Push the data item into the master data
                             array_push($masterData, $masterDataItem);
@@ -223,7 +223,7 @@ class VentilatedClass
                             $datee2 = date("j M y", strtotime($csv[0]));
                             $masterDataItem = array( 
                                 "date" => $datee2,
-                                "cases" => $currentDateData[strtolower($state)]
+                                "cases" => $currentDateData[$state]
                             );
                             // Push the data item into the master data
                             array_push($masterData, $masterDataItem);
@@ -286,7 +286,7 @@ class VentilatedClass
                             $datee2 = date("j M y", strtotime($csv[0]));
                             $masterDataItem = array( 
                                 "date" => $datee2,
-                                "cases" => $currentDateData[strtolower($state)]
+                                "cases" => $currentDateData[$state]
                             );
                             // Push the data item into the master data
                             array_push($masterData, $masterDataItem);
