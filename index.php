@@ -8,7 +8,10 @@ if (isset($_SESSION['state']))
 { 
     $state = $_SESSION['state'];  
 }  
-$vaccine = json_decode($json,true);   
+
+$vaccine = json_decode($json,true);    
+
+
  
 
 $stateArr = ['Johor','Kedah','Kelantan', 'Melaka', 'Negeri Sembilan', 'Pahang', 'Perak', 'Perlis','Pulau Pinang', 'Sabah', 'Sarawak', 'Selangor', 'Terengganu', 'W.P. Kuala Lumpur', 'W.P. Labuan', 'W.P. Putrajaya' ];

@@ -7,6 +7,11 @@ $vaccineStateUrl= $vaccineRepoUrl . "vaccination/vax_state.csv";
 if (isset($_GET['state']))
 { 
     $state = $_GET['state']; 
+}
+else{
+    $state = $_SESSION['state'];
+}
+
     if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {
         $csvs = [];
         while(! feof($handle)) {
@@ -34,9 +39,7 @@ if (isset($_GET['state']))
         
         fclose($handle);
         // print_r($json);
-    }
- 
-}
+    } 
 
 
 ?>
