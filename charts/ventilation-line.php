@@ -3,49 +3,50 @@
 <script type="text/javascript">
 
 
+
 jQuery(document).ready(function($){ 
-    $.ajax({
-      url: "../model/DeathCompare.php",
+    $.ajax({ 
+      url: "../model/VentilatedLine.php",
       method: "GET",
       success: function(data) {
-        console.log('test data:',data);
-        var date = [];  
-        var unvax = [];  
-        var vax = [];  
-        for (var i in data) {
-            date.push(data[i].date); 
-            unvax.push(data[i].unvax);  
-            vax.push(data[i].vax);  
+ 
+        console.log('bar chart data:',data);
+       
+        var date = [];
+        var labeldate = [];
+        var cases = [];  
+        for (var i in data) { 
+          date.push(data[i].date);
+          labeldate.push(data[i].labeldate);
+          cases.push(data[i].cases);   
+            
         }
-  
+        console.log('haii', cases);
         var chartdata = {
           labels: date,
           datasets : [
             {
-              label: "Fully Vaccinated",
-              backgroundColor: "#3359b8",
-              hoverBackgroundColor: "#5e8af7",
-              borderColor: "#3359b8",
-              data: vax
-            },
-            {
-              label: "Unvaccinated",
-              backgroundColor: "#c22f2f",
-              hoverBackgroundColor: "#ed5858",
-              borderColor: "#c22f2f",
-              data: unvax
-            }, 
+              label: "Active Ventilated",
+              backgroundColor: "#419466",
+              hoverBackgroundColor: "#95c4aa",
+              borderColor: "#58806a",
+              data: cases
+            }
           ]
-
         }
         ;
   
-        var ctx = $("#death");
+        var ctx = $("#ventilated");
   
         var barGraph = new Chart(ctx, {
           type: 'line',
           data: chartdata,
           options: {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
             maintainAspectRatio: false,
             layout: {
               padding: {
@@ -56,6 +57,9 @@ jQuery(document).ready(function($){
               }
             }, 
             tooltips: {
+              callbacks: {
+                label:labeldate
+              },
                 titleMarginBottom: 10,
                 titleFontColor: '#6e707e',
                 titleFontSize: 14,
@@ -68,13 +72,6 @@ jQuery(document).ready(function($){
                 displayColors: false,
                 caretPadding: 10, 
               },
-
-              x: {
-                stacked: true,
-              },
-              y: {
-                stacked: true
-              }
           }
           
         });

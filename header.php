@@ -66,16 +66,16 @@ $dateArr = ['2 Weeks Ago','2 Months Ago','This Year', 'All Time'];
         <?php } ?>   href="deaths.php">Deaths  </a>
         </li>
 
-        <li <?php if ($_SERVER['SCRIPT_NAME'] == "/ventilation.php") { ?> 
+        <li <?php if ($_SERVER['SCRIPT_NAME'] == "/ventilations.php") { ?> 
             class="nav-item active" 
         <?php   } else {  ?>
             class="nav-item"
         <?php } ?>>
-            <a <?php if ($_SERVER['SCRIPT_NAME'] == "/ventilation.php") { ?> 
+            <a <?php if ($_SERVER['SCRIPT_NAME'] == "/ventilations.php") { ?> 
             class="nav-link active" 
         <?php   } else {  ?>
             class="nav-link"
-        <?php } ?>   href="ventilation.php">Ventilations  </a>
+        <?php } ?>   href="ventilations.php">Ventilations  </a>
         </li>
 
         <li <?php if ($_SERVER['SCRIPT_NAME'] == "/icu.php") { ?> 
