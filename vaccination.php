@@ -91,7 +91,7 @@ require ("charts/vaccination.php");
                         </div>  
                     </div>    
 
-                    <div class="row mt-2" style="margin-bottom:120px">
+                    <div class="row mt-2 mb-2"  >
                         <div class="col">
                             <span class="text-muted">Daily - Booster</span>
                             <h4>+ <?php echo number_format($vaccine['daily_booster'])?></h4>
@@ -102,8 +102,8 @@ require ("charts/vaccination.php");
                         </div>  
                     </div>     
  
-                    <div>
-                        <canvas id="vaccination" width="100%" height="400"> </canvas> 
+                    <div >
+                        <canvas id="vaccination" width="100%" height="800"> </canvas> 
                     </div>
                 </p> 
             </div>

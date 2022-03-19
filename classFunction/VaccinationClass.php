@@ -25,7 +25,7 @@ class VaccinationClass
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
         }
-        
+
         if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {
             $csvs = [];
             while(! feof($handle)) {
@@ -101,7 +101,7 @@ class VaccinationClass
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
         }
-        
+
         if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {
             $csvs = [];
             while(! feof($handle)) {
@@ -130,7 +130,7 @@ class VaccinationClass
                         $timestamp = strtotime($week_end);
                         $day =  date("w", $timestamp);
         
-                        $week_start = date('Y-m-d', strtotime('-'.(16-$day).' days')); 
+                        $week_start = date('Y-m-d', strtotime('-'.(61-$day).' days'));
                         
                         if($csv[0] >= $week_start && $csv[0] <= $week_end){
                             $onedose[$stateNames[15]] = $csv[2];
@@ -176,7 +176,7 @@ class VaccinationClass
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
         }
-        
+
         if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {
             $csvs = [];
             while(! feof($handle)) {
@@ -205,7 +205,7 @@ class VaccinationClass
                         $timestamp = strtotime($week_end);
                         $day =  date("w", $timestamp);
         
-                        $week_start = date('Y-m-d', strtotime('-'.(16-$day).' days')); 
+                        $week_start = date('Y-m-d', strtotime('-'.(365-$day).' days'));
                         
                         if($csv[0] >= $week_start && $csv[0] <= $week_end){
                             $onedose[$stateNames[15]] = $csv[2];
@@ -251,7 +251,7 @@ class VaccinationClass
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
         }
-        
+
         if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {
             $csvs = [];
             while(! feof($handle)) {
@@ -280,7 +280,7 @@ class VaccinationClass
                         $timestamp = strtotime($week_end);
                         $day =  date("w", $timestamp);
         
-                        $week_start = date('Y-m-d', strtotime('-'.(16-$day).' days')); 
+                        $week_start =  date("Y",strtotime("-1 year"));
                         
                         if($csv[0] >= $week_start && $csv[0] <= $week_end){
                             $onedose[$stateNames[15]] = $csv[2];
