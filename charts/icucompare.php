@@ -5,42 +5,44 @@
 
 jQuery(document).ready(function($){ 
     $.ajax({
-      url: "../model/DeathCompare.php",
+      url: "../model/ICUCompare.php",
       method: "GET",
       success: function(data) {
         console.log('test data:',data);
         var date = [];  
-        var unvax = [];  
-        var vax = [];  
+        var noncovid = [];  
+        var covid = [];  
         for (var i in data) {
             date.push(data[i].date); 
-            unvax.push(data[i].unvax);  
-            vax.push(data[i].vax);  
+            noncovid.push(data[i].noncovid);  
+            covid.push(data[i].covid);  
         }
   
         var chartdata = {
           labels: date,
           datasets : [
             {
-              label: "Fully Vaccinated",
+              label: "Non-Covid", 
               backgroundColor: "#3359b8",
               hoverBackgroundColor: "#5e8af7",
               borderColor: "#3359b8",
-              data: vax
-            },
+              data: covid
+            }, 
             {
-              label: "Unvaccinated",
+              label: "Covid",
               backgroundColor: "#c22f2f",
               hoverBackgroundColor: "#ed5858",
               borderColor: "#c22f2f",
-              data: unvax
-            }, 
+              data: noncovid
+              
+            },
+           
           ]
 
         }
         ;
   
-        var ctx = $("#death");
+        var ctx = $("#icu");
   
         var barGraph = new Chart(ctx, {
           type: 'line',
@@ -67,7 +69,8 @@ jQuery(document).ready(function($){
                 yPadding: 15,
                 displayColors: false,
                 caretPadding: 10, 
-              }, 
+              },
+ 
           }
           
         });

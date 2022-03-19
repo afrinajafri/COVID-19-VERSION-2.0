@@ -63,8 +63,8 @@ require ("charts/ventilation-line.php");
       
         <div class="card mb-5"> 
             <div class="card-body">
-            <p class="text-muted">Deaths <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of <?php echo $vaccine['date']?>, 11:59 pm</span></p>
-            <h5 class="card-title">Death Comparison for Fully Vaccinated VS Not Vaccinated</h5> 
+            <p class="text-muted">Healthcare <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of <?php echo $vaccine['date']?>, 11:59 pm</span></p>
+            <h5 class="card-title">COVID-19 Patients Ventilated</h5> 
             <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo  $_SESSION['ventilation_state']  ?></h6> 
                 <p class="card-text">     
                 <div >
