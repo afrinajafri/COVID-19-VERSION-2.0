@@ -15,11 +15,11 @@ if (($handle = fopen($epidemicStateNewDeathsUrl, "r")) !== FALSE) {
             if ($key % 16 === 1) {
                 // Create a new set of data array when we are going to add first
                 $currentDateData = array();
-                $currentDateData[$stateNames[$key % 16 - 1]] = $csv[2];
+                $currentDateData[$stateNames[$key % 16 - 1]] = $csv[4];
             } else if ($key % 16 === 0) {
                 // Add the last data, and then push it into the master data
-                if($csv[0] == '2022-03-13'){
-                    $currentDateData[$stateNames[15]] = $csv[2];
+                if($csv[0] == '2022-03-14'){
+                    $currentDateData[$stateNames[15]] = $csv[4];
                     $masterDataItem = array(
                         "date" => $csv[0],
                         "deaths" => $currentDateData
@@ -29,7 +29,7 @@ if (($handle = fopen($epidemicStateNewDeathsUrl, "r")) !== FALSE) {
                 }
                
             } else {
-                $currentDateData[$stateNames[$key % 16 - 1]] = $csv[2];
+                $currentDateData[$stateNames[$key % 16 - 1]] = $csv[4];
             }
         }
     }

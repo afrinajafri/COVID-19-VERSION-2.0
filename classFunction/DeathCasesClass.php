@@ -31,17 +31,17 @@ class DeathCasesClass
             $csvs[] = fgetcsv($handle);
             }
             $masterData = array();
-            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu'];
+            $stateNames = ['johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu', 'wpkl', 'wplabuan', 'wpputrajaya'];
             foreach ($csvs as $key => $csv) {
                 if ($key === 0) continue;
                 else {
                     if ($key % 16 === 1) {
                         // Create a new set of data array when we are going to add first
                         $currentDateData = array();
-                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[2];
+                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[4];
                     } else if ($key % 16 === 0) {
                         // Add the last data, and then push it into the master data
-                        $currentDateData[$stateNames[15]] = $csv[2]; 
+                        $currentDateData[$stateNames[15]] = $csv[4]; 
 
                         $week_end = $csv[0];
                         $timestamp = strtotime($week_end);
@@ -65,7 +65,7 @@ class DeathCasesClass
                         }
                     
                     } else {
-                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[2];
+                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[4];
                     }
                 }
             }
@@ -102,17 +102,17 @@ class DeathCasesClass
             $csvs[] = fgetcsv($handle);
             }
             $masterData = array();
-            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu'];
+            $stateNames = ['johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu', 'wpkl', 'wplabuan', 'wpputrajaya'];
             foreach ($csvs as $key => $csv) {
                 if ($key === 0) continue;
                 else {
                     if ($key % 16 === 1) {
                         // Create a new set of data array when we are going to add first
                         $currentDateData = array();
-                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[2];
+                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[4];
                     } else if ($key % 16 === 0) {
                         // Add the last data, and then push it into the master data
-                        $currentDateData[$stateNames[15]] = $csv[2]; 
+                        $currentDateData[$stateNames[15]] = $csv[4]; 
 
                         $week_end = $csv[0];
                         $timestamp = strtotime($week_end);
@@ -132,7 +132,7 @@ class DeathCasesClass
                         }
                     
                     } else {
-                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[2];
+                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[4];
                     }
                 }
             }
@@ -168,17 +168,17 @@ class DeathCasesClass
             $csvs[] = fgetcsv($handle);
             }
             $masterData = array();
-            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu'];
+            $stateNames = ['johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu', 'wpkl', 'wplabuan', 'wpputrajaya'];
             foreach ($csvs as $key => $csv) {
                 if ($key === 0) continue;
                 else {
                     if ($key % 16 === 1) {
                         // Create a new set of data array when we are going to add first
                         $currentDateData = array();
-                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[2];
+                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[4];
                     } else if ($key % 16 === 0) {
                         // Add the last data, and then push it into the master data
-                        $currentDateData[$stateNames[15]] = $csv[2]; 
+                        $currentDateData[$stateNames[15]] = $csv[4]; 
 
                         $week_end = $csv[0];
                         $timestamp = strtotime($week_end);
@@ -198,7 +198,7 @@ class DeathCasesClass
                         }
                     
                     } else {
-                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[2];
+                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[4];
                     }
                 }
             }
@@ -234,17 +234,17 @@ class DeathCasesClass
             $csvs[] = fgetcsv($handle);
             }
             $masterData = array();
-            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu'];
+            $stateNames = ['johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu', 'wpkl', 'wplabuan', 'wpputrajaya'];
             foreach ($csvs as $key => $csv) {
                 if ($key === 0) continue;
                 else {
                     if ($key % 16 === 1) {
                         // Create a new set of data array when we are going to add first
                         $currentDateData = array();
-                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[2];
+                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[4];
                     } else if ($key % 16 === 0) {
                         // Add the last data, and then push it into the master data
-                        $currentDateData[$stateNames[15]] = $csv[2]; 
+                        $currentDateData[$stateNames[15]] = $csv[4]; 
 
                         $week_end = $csv[0];
                         $timestamp = strtotime($week_end);
@@ -263,7 +263,7 @@ class DeathCasesClass
                         }
                     
                     } else {
-                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[2];
+                        $currentDateData[$stateNames[$key % 16 - 1]] = $csv[4];
                     }
                 }
             }
