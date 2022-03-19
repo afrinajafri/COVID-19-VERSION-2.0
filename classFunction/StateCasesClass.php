@@ -6,49 +6,13 @@ class StateCasesClass
     public function callCSVFile(){
         $healthRepoUrl = "https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/";
         return $healthRepoUrl . "epidemic/cases_state.csv";
-    }
-
-    public function callAPI($method, $url, $data){
-        $curl = curl_init();
-        switch ($method){
-           case "POST":
-              curl_setopt($curl, CURLOPT_POST, 1);
-              if ($data)
-                 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-              break;
-           case "PUT":
-              curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
-              if ($data)
-                 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);			 					
-              break;
-           default:
-              if ($data)
-                 $url = sprintf("%s?%s", $url, http_build_query($data));
-        }
-        // OPTIONS:
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-           'APIKEY: 111111111111111111111',
-           'Content-Type: application/json',
-        ));
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        // EXECUTE:
-        $result = curl_exec($curl);
-        if(!$result){die("Connection Failure");}
-        curl_close($curl);
-        return $result;
-     }
+    } 
     
     //two weeks ago
     public function weeklyData($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();  
 
-        $get_data = $this->callAPI('GET', 'https://covid-19.samsam123.name.my/api/cases?date=latest', false);
-        $response = json_decode($get_data, true);
-        $week_end = $response['date'];
-        // $errors = $response['response']['errors'];
-        // $data = $response['response']['data'][0];
+        
 
         if($state == 'Negeri Sembilan'){
             $state = 'n9';
@@ -82,7 +46,7 @@ class StateCasesClass
                         // Add the last data, and then push it into the master data
                         $currentDateData[$stateNames[15]] = $csv[2]; 
 
-                        // $day = date('w');
+                        $week_end = $csv[0];
                         $timestamp = strtotime($week_end);
                         $day =  date("w", $timestamp);
 
@@ -123,11 +87,7 @@ class StateCasesClass
     public function twoMonth($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();  
 
-        $get_data = $this->callAPI('GET', 'https://covid-19.samsam123.name.my/api/cases?date=latest', false);
-        $response = json_decode($get_data, true);
-        $week_end = $response['date'];
-        // $errors = $response['response']['errors'];
-        // $data = $response['response']['data'][0];
+        
 
         if($state == 'Negeri Sembilan'){
             $state = 'n9';
@@ -161,7 +121,7 @@ class StateCasesClass
                         // Add the last data, and then push it into the master data
                         $currentDateData[$stateNames[15]] = $csv[2]; 
 
-                        // $day = date('w');
+                        $week_end = $csv[0];
                         $timestamp = strtotime($week_end);
                         $day =  date("w", $timestamp);
 
@@ -197,11 +157,7 @@ class StateCasesClass
      public function yearlyData($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();  
 
-        $get_data = $this->callAPI('GET', 'https://covid-19.samsam123.name.my/api/cases?date=latest', false);
-        $response = json_decode($get_data, true);
-        $week_end = $response['date'];
-        // $errors = $response['response']['errors'];
-        // $data = $response['response']['data'][0];
+        
 
         if($state == 'Negeri Sembilan'){
             $state = 'n9';
@@ -235,7 +191,7 @@ class StateCasesClass
                         // Add the last data, and then push it into the master data
                         $currentDateData[$stateNames[15]] = $csv[2]; 
 
-                        // $day = date('w');
+                        $week_end = $csv[0];
                         $timestamp = strtotime($week_end);
                         $day =  date("w", $timestamp);
 
@@ -271,11 +227,7 @@ class StateCasesClass
      public function allTime($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();  
 
-        $get_data = $this->callAPI('GET', 'https://covid-19.samsam123.name.my/api/cases?date=latest', false);
-        $response = json_decode($get_data, true);
-        $week_end = $response['date'];
-        // $errors = $response['response']['errors'];
-        // $data = $response['response']['data'][0];
+        
 
         if($state == 'Negeri Sembilan'){
             $state = 'n9';
@@ -309,7 +261,7 @@ class StateCasesClass
                         // Add the last data, and then push it into the master data
                         $currentDateData[$stateNames[15]] = $csv[2]; 
 
-                        // $day = date('w');
+                        $week_end = $csv[0];
                         $timestamp = strtotime($week_end);
                         $day =  date("w", $timestamp);
 

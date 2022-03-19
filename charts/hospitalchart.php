@@ -3,28 +3,34 @@
 <script type="text/javascript">
 
 
+
 jQuery(document).ready(function($){ 
-    $.ajax({
+    $.ajax({ 
       url: "../model/HospitalCases.php",
       method: "GET",
       success: function(data) {
+ 
         console.log('hospital data:',data);
+       
         var date = [];
-        var admitted_covid = [];  
-        for (var i in data) {
-            date.push(data[i].date);
-            admitted_covid.push(data[i].admitted_covid);  
+        var labeldate = [];
+        var cases = [];  
+        for (var i in data) { 
+          date.push(data[i].date);
+          labeldate.push(data[i].labeldate);
+          cases.push(data[i].cases);   
+            
         }
-  
+        console.log('haii', cases);
         var chartdata = {
           labels: date,
           datasets : [
             {
               label: "Hospitalized",
-              backgroundColor: "#4e73df",
-              hoverBackgroundColor: "#2e59d9",
-              borderColor: "#4e73df",
-              data: admitted_covid
+              backgroundColor: "#419466",
+              hoverBackgroundColor: "#95c4aa",
+              borderColor: "#58806a",
+              data: cases
             }
           ]
         }
@@ -36,6 +42,11 @@ jQuery(document).ready(function($){
           type: 'bar',
           data: chartdata,
           options: {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
             maintainAspectRatio: false,
             layout: {
               padding: {
@@ -46,6 +57,9 @@ jQuery(document).ready(function($){
               }
             }, 
             tooltips: {
+              callbacks: {
+                label:labeldate
+              },
                 titleMarginBottom: 10,
                 titleFontColor: '#6e707e',
                 titleFontSize: 14,

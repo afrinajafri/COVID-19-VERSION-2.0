@@ -6,49 +6,10 @@ class DeathCasesClass
     public function callCSVFile(){
         $healthRepoUrl = "https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/";
         return $healthRepoUrl . "epidemic/deaths_state.csv";
-    }
-
-    public function callAPI($method, $url, $data){
-        $curl = curl_init();
-        switch ($method){
-           case "POST":
-              curl_setopt($curl, CURLOPT_POST, 1);
-              if ($data)
-                 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-              break;
-           case "PUT":
-              curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
-              if ($data)
-                 curl_setopt($curl, CURLOPT_POSTFIELDS, $data);			 					
-              break;
-           default:
-              if ($data)
-                 $url = sprintf("%s?%s", $url, http_build_query($data));
-        }
-        // OPTIONS:
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-           'APIKEY: 111111111111111111111',
-           'Content-Type: application/json',
-        ));
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        // EXECUTE:
-        $result = curl_exec($curl);
-        if(!$result){die("Connection Failure");}
-        curl_close($curl);
-        return $result;
-     }
-    
+    } 
     //two weeks ago
     public function weeklyData($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();  
-
-        $get_data = $this->callAPI('GET', 'https://covid-19.samsam123.name.my/api/cases?date=latest', false);
-        $response = json_decode($get_data, true);
-        $week_end = $response['date'];
-        // $errors = $response['response']['errors'];
-        // $data = $response['response']['data'][0];
 
         if($state == 'Negeri Sembilan'){
             $state = 'n9';
@@ -70,7 +31,7 @@ class DeathCasesClass
             $csvs[] = fgetcsv($handle);
             }
             $masterData = array();
-            $stateNames = ['johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu', 'wpkl', 'wplabuan', 'wpputrajaya'];
+            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu'];
             foreach ($csvs as $key => $csv) {
                 if ($key === 0) continue;
                 else {
@@ -82,13 +43,11 @@ class DeathCasesClass
                         // Add the last data, and then push it into the master data
                         $currentDateData[$stateNames[15]] = $csv[2]; 
 
-                        // $day = date('w');
+                        $week_end = $csv[0];
                         $timestamp = strtotime($week_end);
                         $day =  date("w", $timestamp);
 
-                        $week_start = date('Y-m-d', strtotime('-'.(16-$day).' days'));
-                        // $week_end = $csv[0];
- 
+                        $week_start = date('Y-m-d', strtotime('-'.(16-$day).' days')); 
     
                         if($csv[0] >= $week_start && $csv[0] <= $week_end){
                             $datee2 = date("j M y", strtotime($csv[0]));
@@ -123,12 +82,6 @@ class DeathCasesClass
     public function twoMonth($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();  
 
-        $get_data = $this->callAPI('GET', 'https://covid-19.samsam123.name.my/api/cases?date=latest', false);
-        $response = json_decode($get_data, true);
-        $week_end = $response['date'];
-        // $errors = $response['response']['errors'];
-        // $data = $response['response']['data'][0];
-
         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
@@ -149,7 +102,7 @@ class DeathCasesClass
             $csvs[] = fgetcsv($handle);
             }
             $masterData = array();
-            $stateNames = ['johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu', 'wpkl', 'wplabuan', 'wpputrajaya'];
+            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu'];
             foreach ($csvs as $key => $csv) {
                 if ($key === 0) continue;
                 else {
@@ -161,13 +114,11 @@ class DeathCasesClass
                         // Add the last data, and then push it into the master data
                         $currentDateData[$stateNames[15]] = $csv[2]; 
 
-                        // $day = date('w');
+                        $week_end = $csv[0];
                         $timestamp = strtotime($week_end);
                         $day =  date("w", $timestamp);
 
-                        $week_start = date('Y-m-d', strtotime('-'.(61-$day).' days'));
-                        // $week_end = $csv[0];
- 
+                        $week_start = date('Y-m-d', strtotime('-'.(61-$day).' days')); 
     
                         if($csv[0] >= $week_start && $csv[0] <= $week_end){
                             $datee2 = date("j M y", strtotime($csv[0]));
@@ -197,12 +148,6 @@ class DeathCasesClass
      public function yearlyData($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();  
 
-        $get_data = $this->callAPI('GET', 'https://covid-19.samsam123.name.my/api/cases?date=latest', false);
-        $response = json_decode($get_data, true);
-        $week_end = $response['date'];
-        // $errors = $response['response']['errors'];
-        // $data = $response['response']['data'][0];
-
         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
@@ -223,7 +168,7 @@ class DeathCasesClass
             $csvs[] = fgetcsv($handle);
             }
             $masterData = array();
-            $stateNames = ['johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu', 'wpkl', 'wplabuan', 'wpputrajaya'];
+            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu'];
             foreach ($csvs as $key => $csv) {
                 if ($key === 0) continue;
                 else {
@@ -235,13 +180,11 @@ class DeathCasesClass
                         // Add the last data, and then push it into the master data
                         $currentDateData[$stateNames[15]] = $csv[2]; 
 
-                        // $day = date('w');
+                        $week_end = $csv[0];
                         $timestamp = strtotime($week_end);
                         $day =  date("w", $timestamp);
 
-                        $week_start = date('Y-m-d', strtotime('-'.(365-$day).' days'));
-                        // $week_end = $csv[0];
- 
+                        $week_start = date('Y-m-d', strtotime('-'.(365-$day).' days')); 
     
                         if($csv[0] >= $week_start && $csv[0] <= $week_end){
                             $datee2 = date("j M y", strtotime($csv[0]));
@@ -271,12 +214,6 @@ class DeathCasesClass
      public function allTime($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();  
 
-        $get_data = $this->callAPI('GET', 'https://covid-19.samsam123.name.my/api/cases?date=latest', false);
-        $response = json_decode($get_data, true);
-        $week_end = $response['date'];
-        // $errors = $response['response']['errors'];
-        // $data = $response['response']['data'][0];
-
         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
@@ -297,7 +234,7 @@ class DeathCasesClass
             $csvs[] = fgetcsv($handle);
             }
             $masterData = array();
-            $stateNames = ['johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu', 'wpkl', 'wplabuan', 'wpputrajaya'];
+            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu'];
             foreach ($csvs as $key => $csv) {
                 if ($key === 0) continue;
                 else {
@@ -309,15 +246,11 @@ class DeathCasesClass
                         // Add the last data, and then push it into the master data
                         $currentDateData[$stateNames[15]] = $csv[2]; 
 
-                        // $day = date('w');
+                        $week_end = $csv[0];
                         $timestamp = strtotime($week_end);
                         $day =  date("w", $timestamp);
 
-                        $week_start =  date("Y",strtotime("-1 year"));
-                       
-                        // $week_end = $csv[0];
- 
-    
+                        $week_start =  date("Y",strtotime("-1 year")); 
                         if($csv[0] >= $week_start && $csv[0] <= $week_end){
                             $datee2 = date("j M y", strtotime($csv[0]));
                             $masterDataItem = array( 

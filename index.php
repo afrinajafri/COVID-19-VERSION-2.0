@@ -33,6 +33,8 @@ require ("charts/malaysiadaily.php");
 require ("charts/deathchart.php"); 
 require ("charts/ventilated.php"); 
 require ("charts/icuchart.php"); 
+require ("charts/hospitalchart.php"); 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -236,7 +238,7 @@ require ("charts/icuchart.php");
                     <h5 class="card-title">COVID-19 Hospital Admissions</h5> 
                     <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?></h6> 
                         <p class="card-text">
-                        <canvas id="hospital" width="100%" height="400"> </canvas>
+                        <canvas id="hospitalchart" width="100%" height="400"> </canvas>
                         </p> 
                     </div>
                 </div>
