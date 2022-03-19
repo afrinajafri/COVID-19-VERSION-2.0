@@ -104,7 +104,7 @@ class HospitalClass
             $csvs[] = fgetcsv($handle);
             }
             $masterData = array();
-            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu', 'wpkl', 'wplabuan', 'wpputrajaya'];
+            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu'];
             foreach ($csvs as $key => $csv) {
                 if ($key === 0) continue;
                 else {
@@ -171,7 +171,7 @@ class HospitalClass
             $csvs[] = fgetcsv($handle);
             }
             $masterData = array();
-            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu', 'wpkl', 'wplabuan', 'wpputrajaya'];
+            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu'];
             foreach ($csvs as $key => $csv) {
                 if ($key === 0) continue;
                 else {
@@ -237,7 +237,7 @@ class HospitalClass
             $csvs[] = fgetcsv($handle);
             }
             $masterData = array();
-            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu', 'wpkl', 'wplabuan', 'wpputrajaya'];
+            $stateNames = ['wpkl', 'wplabuan', 'wpputrajaya','johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu'];
             foreach ($csvs as $key => $csv) {
                 if ($key === 0) continue;
                 else {

@@ -5,18 +5,18 @@
 
 jQuery(document).ready(function($){ 
     $.ajax({
-      url: "../model/TestConducted.php",
+      url: "../model/TestCases.php",
       method: "GET",
       success: function(data) {
         console.log('test data:',data);
         var date = [];
         var total = [];  
-        var rtkag = [];  
+        var rtk = [];  
         var pcr = [];  
         for (var i in data) {
             date.push(data[i].date);
             total.push(data[i].total);  
-            rtkag.push(data[i].rtkag);  
+            rtk.push(data[i].rtk);  
             pcr.push(data[i].pcr);  
         }
   
@@ -35,7 +35,7 @@ jQuery(document).ready(function($){
               backgroundColor: "#d63c31",
               hoverBackgroundColor: "#d63c31",
               borderColor: "#d63c31",
-              data: rtkag
+              data: rtk
             },
             {
               label: "PCR",

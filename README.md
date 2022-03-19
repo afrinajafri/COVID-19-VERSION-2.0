@@ -1,8 +1,4 @@
-##TO DO 
-Hospital admission
-Test conducted
-
-
+##TO DO   
 
 ##FIX## 
 API for death is wrong
