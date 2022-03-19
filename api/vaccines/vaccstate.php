@@ -25,6 +25,7 @@ if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {
             $stateDataItem[$column_name] = $csv[$column_key];
         }
         if($stateDataItem['state'] == 'Johor'){
+            $stateDataItem['date'] = $csv[0];
             $json = json_encode($stateDataItem);
         } 
     } 

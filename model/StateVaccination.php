@@ -33,6 +33,8 @@ else
                 $stateDataItem[$column_name] = $csv[$column_key];
             }
             if($stateDataItem['state'] == $state){
+                $date = date("j M Y", strtotime($csv[0]));
+                $stateDataItem['date'] = $date ;
                 $json = json_encode($stateDataItem);
             }   
         } 

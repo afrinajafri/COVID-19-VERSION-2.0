@@ -10,7 +10,7 @@ if (isset($_SESSION['state']))
 }
  
 if (isset($json)){
-    $vaccine = json_decode($json,true);     
+    $vaccine = json_decode($json,true);      
 } 
 
 
@@ -104,9 +104,9 @@ require ("charts/icuchart.php");
             <div class="col-xl-5">
                 <div class="card mb-5"> 
                     <div class="card-body">
-                    <p class="text-muted">Vaccinations <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 16 Mar 2022, 11:59 pm</span></p>
+                    <p class="text-muted">Vaccinations <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of <?php echo $vaccine['date']?>, 11:59 pm</span></p>
                     <h5 class="card-title">Population Vaccinated</h5> 
-                    <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?> | Total Population</h6> 
+                    <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo 1;  ?> | Total Population</h6> 
                         <p class="card-text"> 
                         
 
@@ -161,7 +161,7 @@ require ("charts/icuchart.php");
             <div class="col-xl-7">
                 <div class="card mb-4"> 
                     <div class="card-body">
-                    <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 16 Mar 2022, 11:59 pm</span></p>
+                    <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of <?php echo $vaccine['date']?>, 11:59 pm</span></p>
                     <h5 class="card-title">Confirmed COVID-19 Cases in Malaysia</h5> 
                     <h6 class="card-subtitle mb-2 text-muted">Data for All Malaysia State</h6> 
                         <p class="card-text"> 
@@ -192,7 +192,7 @@ require ("charts/icuchart.php");
             <div class="col-xl-4">
                 <div class="card mb-4"> 
                     <div class="card-body">
-                    <p class="text-muted">Deaths   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 16 Mar 2022, 11:59 pm</span></p>
+                    <p class="text-muted">Deaths   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of <?php echo $vaccine['date']?>, 11:59 pm</span></p>
                     <h5 class="card-title">COVID-19 Deaths by Date of Death</h5> 
                     <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?></h6> 
                         <p class="card-text">
@@ -206,7 +206,7 @@ require ("charts/icuchart.php");
             <div class="col-xl-4">
                 <div class="card mb-4"> 
                     <div class="card-body">
-                    <p class="text-muted">Healthcare   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 16 Mar 2022, 11:59 pm</span></p>
+                    <p class="text-muted">Healthcare   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of <?php echo $vaccine['date']?>, 11:59 pm</span></p>
                     <h5 class="card-title">COVID-19 Patients Ventilated</h5> 
                     <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?></h6> 
                         <p class="card-text">
@@ -219,7 +219,7 @@ require ("charts/icuchart.php");
             <div class="col-xl-4">
                 <div class="card mb-4"> 
                     <div class="card-body">
-                    <p class="text-muted">Healthcare   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 16 Mar 2022, 11:59 pm</span></p>
+                    <p class="text-muted">Healthcare   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of <?php echo $vaccine['date']?>, 11:59 pm</span></p>
                     <h5 class="card-title">COVID-19 Patients in ICU</h5> 
                     <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?></h6> 
                         <p class="card-text">
@@ -232,7 +232,7 @@ require ("charts/icuchart.php");
             <div class="col-xl-4">
                 <div class="card mb-4"> 
                     <div class="card-body">
-                    <p class="text-muted">Healthcare   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 16 Mar 2022, 11:59 pm</span></p>
+                    <p class="text-muted">Healthcare   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of <?php echo $vaccine['date']?>, 11:59 pm</span></p>
                     <h5 class="card-title">COVID-19 Hospital Admissions</h5> 
                     <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?></h6> 
                         <p class="card-text">
@@ -245,7 +245,7 @@ require ("charts/icuchart.php");
             <div class="col-xl-4">
                 <div class="card mb-4"> 
                     <div class="card-body">
-                    <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 16 Mar 2022, 11:59 pm</span></p>
+                    <p class="text-muted">Cases   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of <?php echo $vaccine['date']?>, 11:59 pm</span></p>
                     <h5 class="card-title">Confirmed COVID-19 Cases</h5> 
                     <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?></h6> 
                         <p class="card-text">
@@ -258,7 +258,7 @@ require ("charts/icuchart.php");
             <div class="col-xl-4">
                 <div class="card mb-4"> 
                     <div class="card-body">
-                    <p class="text-muted">Testing   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of 16 Mar 2022, 11:59 pm</span></p>
+                    <p class="text-muted">Testing   <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of <?php echo $vaccine['date']?>, 11:59 pm</span></p>
                     <h5 class="card-title">COVID-19 Tests Conducted</h5> 
                     <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo $vaccine['state'] ?></h6> 
                         <p class="card-text">
