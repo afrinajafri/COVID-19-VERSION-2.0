@@ -5,41 +5,41 @@
 
 jQuery(document).ready(function($){ 
     $.ajax({
-      url: "../model/MixedCases.php",
+      url: "../model/VaccCases.php",
       method: "GET",
       success: function(data) {
         console.log('line chart data:',data);
         
         var date = [];
-        var cases_new = [];  
+        var onedose = [];  
         var deaths_new = [];  
-        var cases_recovered = [];  
+        var twodose = [];  
 
         for (var i in data) {
             date.push(data[i].date);
-            cases_new.push(data[i].cases_new);  
-            cases_recovered.push(data[i].cases_recovered);  
+            onedose.push(data[i].onedose);  
+            twodose.push(data[i].twodose);  
         }
   
         var chartdata = {
           labels: date,
           datasets : [
             {
-              label: "Confirmed Cases",
+              label: "One Dose",
               backgroundColor: "#4e73df",
               hoverBackgroundColor: "#2e59d9",
               borderColor: "#4e73df",
-              data: cases_new,
+              data: onedose,
           // fill: false,        
           // lineTension: 0.4,        
           // radius: 6    
             },
             {
-              label: "Cases Recovered",
+              label: "Two Doses",
               backgroundColor: "#cf4250",
               hoverBackgroundColor: "#cf4250",
               borderColor: "#cf4250",
-              data: cases_recovered,
+              data: twodose,
           // fill: false,        
           // lineTension: 0.4,        
           // radius: 6    
@@ -48,7 +48,7 @@ jQuery(document).ready(function($){
         }
         ;
   
-        var ctx = $("#linechart");
+        var ctx = $("#vaccination");
 
         var opt = {    
         responsive: true,    

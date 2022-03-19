@@ -13,6 +13,6 @@ $epidemicStateNewCasesUrl = $healthRepoUrl . "epidemic/cases_state.csv";
 $epidemicTotalNewDeathsUrl = $healthRepoUrl . "epidemic/deaths_malaysia.csv";
 $epidemicVentilated = $healthRepoUrl . "epidemic/icu.csv";
 $epidemicStateNewDeathsUrl = $healthRepoUrl . "epidemic/deaths_state.csv";
-$epidemicTotalTestsUrl = $healthRepoUrl . "epidemic/tests_state.csv";
+$epidemicTotalTestsUrl = $healthRepoUrl . "epidemic/tests_malaysia.csv";
 $hospital = $healthRepoUrl . "epidemic/hospital.csv";
 ?>

@@ -1,35 +1,59 @@
 <?php
 
 include_once '../source.php';
-
 if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {
     $csvs = [];
     while(! feof($handle)) {
        $csvs[] = fgetcsv($handle);
     }
-
-
-    
-    foreach ($csvs[0] as $single_csv) {
-        $column_names[] = $single_csv;
-    }
     $masterData = array();
+    $stateNames = ['johor', 'kedah', 'kelantan', 'melaka', 'n9', 'pahang', 'perak', 'perlis', 'penang', 'sabah', 'sarawak', 'selangor', 'terengganu', 'wpkl', 'wplabuan', 'wpputrajaya'];
     foreach ($csvs as $key => $csv) {
         if ($key === 0) continue;
-        if ($key % 16 === 1) {
-            // Create a new array for stateData on a new date
-            $stateMasterData = array();
+        else {
+            if ($key % 16 === 1) {
+                // Create a new set of data array when we are going to add first
+                $onedose = array();
+                $onedose[$stateNames[$key % 16 - 1]] = $csv[2];
+
+                $twodose = array();
+                $twodose[$stateNames[$key % 16 - 1]] = $csv[3];
+
+                $booster = array();
+                $booster[$stateNames[$key % 16 - 1]] =$csv[4];
+ 
+
+            } else if ($key % 16 === 0) {
+
+                $week_end = $csv[0];
+                $timestamp = strtotime($week_end);
+                $day =  date("w", $timestamp);
+
+                $week_start = date('Y-m-d', strtotime('-'.(16-$day).' days')); 
+                
+                if($csv[0] >= $week_start && $csv[0] <= $week_end){
+                    $onedose[$stateNames[15]] = $csv[2];
+                    $twodose[$stateNames[15]] = $csv[3];
+                    $booster[$stateNames[15]] = $csv[4];
+                     $date = date("j M y", strtotime($csv[0]));
+                    $masterDataItem = array(
+                        "date" => $date,
+                        "onedose" => $onedose[strtolower('johor')],
+                        "twodose" => $twodose[strtolower('johor')],
+                        "booster" => $booster[strtolower('johor')]
+                    );
+                    // Push the data item into the master data
+                    array_push($masterData, $masterDataItem); 
+                }
+               
+            } else {
+                $onedose[$stateNames[$key % 16 - 1]] = $csv[2];
+                $twodose[$stateNames[$key % 16 - 1]] = $csv[3];
+                $booster[$stateNames[$key % 16 - 1]] =  $csv[4];
+            }
         }
-        foreach ($column_names as $column_key => $column_name) {
-            if ($column_key === 0) continue;
-            $stateDataItem[$column_name] = $csv[$column_key];
-        }
-        if($stateDataItem['state'] == 'Johor'){
-            $stateDataItem['date'] = $csv[0];
-            $json = json_encode($stateDataItem);
-        } 
-    } 
-    
+    }
+    $json = json_encode($masterData);
     fclose($handle);
     print_r($json);
 }
