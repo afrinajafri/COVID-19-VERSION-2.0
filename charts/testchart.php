@@ -24,25 +24,25 @@ jQuery(document).ready(function($){
           labels: date,
           datasets : [
             {
-              label: "Test",
-              backgroundColor: "#4e73df",
-              hoverBackgroundColor: "#2e59d9",
-              borderColor: "#4e73df",
-              data: total
+              label: "PCR",
+              backgroundColor: "#097969",
+              hoverBackgroundColor: "#1f9180",
+              borderColor: "#097969",
+              data: pcr
             },
             {
               label: "RTK",
-              backgroundColor: "#d63c31",
-              hoverBackgroundColor: "#d63c31",
-              borderColor: "#d63c31",
+              backgroundColor: "#5F9EA0",
+              hoverBackgroundColor: "#77c4c7",
+              borderColor: "#5F9EA0",
               data: rtk
             },
             {
-              label: "PCR",
-              backgroundColor: "#307837",
-              hoverBackgroundColor: "#307837",
-              borderColor: "#307837",
-              data: pcr
+              label: "Total",
+              backgroundColor: "#AFE1AF",
+              hoverBackgroundColor: "#ccffcc",
+              borderColor: "#AFE1AF",
+              data: total
             }
           ]
 
