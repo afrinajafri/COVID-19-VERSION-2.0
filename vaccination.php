@@ -11,7 +11,7 @@ if(isset($_GET["vac_state"])   ) {
 require_once("model/Vaccination.php");
 if (isset($json)){
     $vaccine = json_decode($json,true);      
-}  
+}   
 
 
 require ("charts/vaccination.php"); 
