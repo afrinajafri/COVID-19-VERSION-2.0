@@ -11,7 +11,7 @@ class DeathCasesClass
     public function weeklyData($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();  
 
-        if($state == 'Negeri Sembilan'){
+         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -25,6 +25,9 @@ class DeathCasesClass
             $state = 'wpputrajaya';
         }
 
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
+        } 
         if (($handle = fopen($epidemicStateNewCasesUrl, "r")) !== FALSE) {
             $csvs = [];
             while(! feof($handle)) {
@@ -82,7 +85,7 @@ class DeathCasesClass
     public function twoMonth($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();  
 
-        if($state == 'Negeri Sembilan'){
+         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -94,6 +97,10 @@ class DeathCasesClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($epidemicStateNewCasesUrl, "r")) !== FALSE) {
@@ -148,7 +155,7 @@ class DeathCasesClass
      public function yearlyData($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();  
 
-        if($state == 'Negeri Sembilan'){
+         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -160,6 +167,10 @@ class DeathCasesClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($epidemicStateNewCasesUrl, "r")) !== FALSE) {
@@ -214,7 +225,7 @@ class DeathCasesClass
      public function allTime($state){  
         $epidemicStateNewCasesUrl = $this->callCSVFile();  
 
-        if($state == 'Negeri Sembilan'){
+         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -226,6 +237,10 @@ class DeathCasesClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($epidemicStateNewCasesUrl, "r")) !== FALSE) {

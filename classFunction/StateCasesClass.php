@@ -14,7 +14,7 @@ class StateCasesClass
 
         
 
-        if($state == 'Negeri Sembilan'){
+         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -26,6 +26,10 @@ class StateCasesClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($epidemicStateNewCasesUrl, "r")) !== FALSE) {
@@ -89,7 +93,7 @@ class StateCasesClass
 
         
 
-        if($state == 'Negeri Sembilan'){
+         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -101,6 +105,10 @@ class StateCasesClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($epidemicStateNewCasesUrl, "r")) !== FALSE) {
@@ -159,7 +167,7 @@ class StateCasesClass
 
         
 
-        if($state == 'Negeri Sembilan'){
+         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -171,6 +179,10 @@ class StateCasesClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($epidemicStateNewCasesUrl, "r")) !== FALSE) {
@@ -229,7 +241,7 @@ class StateCasesClass
 
         
 
-        if($state == 'Negeri Sembilan'){
+         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -241,6 +253,10 @@ class StateCasesClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($epidemicStateNewCasesUrl, "r")) !== FALSE) {

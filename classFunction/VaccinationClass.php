@@ -12,7 +12,7 @@ class VaccinationClass
     //two weeks ago
     public function weeklyData($state){  
         $vaccineStateUrl = $this->callCSVFile();   
-         if($state == 'Negeri Sembilan'){
+          if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -24,6 +24,10 @@ class VaccinationClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {
@@ -88,7 +92,7 @@ class VaccinationClass
     //two weeks ago
     public function twoMonth($state){  
         $vaccineStateUrl = $this->callCSVFile();   
-         if($state == 'Negeri Sembilan'){
+          if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -100,6 +104,10 @@ class VaccinationClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {
@@ -163,7 +171,7 @@ class VaccinationClass
      //two weeks ago
      public function yearlyData($state){  
         $vaccineStateUrl = $this->callCSVFile();   
-         if($state == 'Negeri Sembilan'){
+          if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -175,6 +183,10 @@ class VaccinationClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {
@@ -238,7 +250,7 @@ class VaccinationClass
      //two weeks ago
      public function allTime($state){  
         $vaccineStateUrl = $this->callCSVFile();   
-         if($state == 'Negeri Sembilan'){
+          if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -250,6 +262,10 @@ class VaccinationClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($vaccineStateUrl, "r")) !== FALSE) {

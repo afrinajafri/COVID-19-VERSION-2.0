@@ -11,7 +11,7 @@ class TestClass
     public function weeklyData($state){  
         $epidemicTotalTestsUrl = $this->callCSVFile();  
 
-        if($state == 'Negeri Sembilan'){
+         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -23,6 +23,10 @@ class TestClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($epidemicTotalTestsUrl, "r")) !== FALSE) {
@@ -89,7 +93,7 @@ class TestClass
     public function twoMonth($state){  
         $epidemicTotalTestsUrl = $this->callCSVFile();  
 
-        if($state == 'Negeri Sembilan'){
+         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -101,6 +105,10 @@ class TestClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($epidemicTotalTestsUrl, "r")) !== FALSE) {
@@ -165,7 +173,7 @@ class TestClass
      public function yearlyData($state){  
         $epidemicTotalTestsUrl = $this->callCSVFile();  
 
-        if($state == 'Negeri Sembilan'){
+         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -177,6 +185,10 @@ class TestClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($epidemicTotalTestsUrl, "r")) !== FALSE) {
@@ -241,7 +253,7 @@ class TestClass
      public function allTime($state){  
         $epidemicTotalTestsUrl = $this->callCSVFile();  
 
-        if($state == 'Negeri Sembilan'){
+         if($state == 'Negeri Sembilan'){
             $state = 'n9';
         }
         if($state == 'W.P. Kuala Lumpur'){
@@ -253,6 +265,10 @@ class TestClass
 
         if($state == 'W.P. Putrajaya'){
             $state = 'wpputrajaya';
+        }
+
+        if($state == 'Pulau Pinang'){
+            $state = 'penang';
         }
 
         if (($handle = fopen($epidemicTotalTestsUrl, "r")) !== FALSE) {
