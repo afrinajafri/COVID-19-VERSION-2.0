@@ -100,18 +100,6 @@ $dateArr = ['2 Weeks Ago','2 Months Ago','This Year', 'All Time'];
         <?php   } else {  ?>
             class="nav-link"
         <?php } ?>   href="hospitalisations.php">Hospitalisations  </a>
-        </li>
-
-        <li <?php if ($_SERVER['SCRIPT_NAME'] == "/cases.php") { ?> 
-            class="nav-item active" 
-        <?php   } else {  ?>
-            class="nav-item"
-        <?php } ?>>
-            <a <?php if ($_SERVER['SCRIPT_NAME'] == "/cases.php") { ?> 
-            class="nav-link active" 
-        <?php   } else {  ?>
-            class="nav-link"
-        <?php } ?>   href="cases.php">Cases  </a>
         </li> 
         </ul>
     </div>
