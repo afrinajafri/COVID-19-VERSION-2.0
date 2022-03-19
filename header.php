@@ -1,5 +1,8 @@
 <?php
 session_start();  
+
+$stateArr = ['Johor','Kedah','Kelantan', 'Melaka', 'Negeri Sembilan', 'Pahang', 'Perak', 'Perlis','Pulau Pinang', 'Sabah', 'Sarawak', 'Selangor', 'Terengganu', 'W.P. Kuala Lumpur', 'W.P. Labuan', 'W.P. Putrajaya' ];
+$dateArr = ['2 Weeks Ago','2 Months Ago','This Year', 'All Time'];
 ?>
  
 <!DOCTYPE html>
