@@ -1,9 +1,9 @@
 <?php 
 
-//Include class  StateCases
-require("../classFunction/StateCasesClass.php");
+//Include class  Hospital
+require("../classFunction/HospitalClass.php");
  
-$cases = new StateCasesClass(); 
+$cases = new HospitalClass(); 
  
 session_start();
 

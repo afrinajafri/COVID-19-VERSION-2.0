@@ -1,9 +1,9 @@
 <?php 
 
-//Include class  StateCases
-require("../classFunction/StateCasesClass.php");
+//Include class  Test
+require("../classFunction/TestClass.php");
  
-$cases = new StateCasesClass(); 
+$cases = new TestClass(); 
  
 session_start();
 
@@ -40,6 +40,5 @@ else if($date == 'This Year'){
 else if($date == 'All Time'){
     $getData = $cases->allTime($state);   
 }  
-
 
 ?>
