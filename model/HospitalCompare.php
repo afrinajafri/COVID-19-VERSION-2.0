@@ -7,13 +7,13 @@ $cases = new HospitalCompare();
  
 session_start();
 
-if (isset($_SESSION['hospital_state']))
+if (isset($_SESSION['hosp_state']))
 {
-    $hospital_state = $_SESSION['hospital_state'];
+    $hosp_state = $_SESSION['hosp_state'];
 }
 else{
-    $hospital_state = 'Johor';
+    $hosp_state = 'Johor';
 }
  
-$getData = $cases->weeklyData($hospital_state);         
+$getData = $cases->weeklyData($hosp_state);         
 ?>

@@ -47,7 +47,7 @@ require ("charts/deathcompare.php");
             <div class="card-body">
             <p class="text-muted">Deaths <span style="font-size: 12px;padding-top:4px" class="float-end">Data as of <?php echo $vaccine['date']?>, 11:59 pm</span></p>
             <h5 class="card-title">Death Comparison for Fully Vaccinated VS Not Vaccinated</h5> 
-            <h6 class="card-subtitle mb-2 text-muted">Data for <?php echo  $_SESSION['death_state']  ?></h6> 
+            <h6 class="card-subtitle mb-2 text-muted">Data for  <?php  if(!isset($_SESSION['death_state'])) {  echo 'Johor'; }else{ echo $_SESSION['death_state'];}?></h6> 
                 <p class="card-text">     
                 <div >
                         <canvas id="death" width="100%" height="800"> </canvas> 
